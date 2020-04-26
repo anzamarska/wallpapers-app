@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
 import GridWrapper from "./components/PhotosGrid/GridWrapper";
+import Modal from "./components/Modal/Modal";
 
 const API_URL = "https://api.unsplash.com/search/photos";
-const VARIABLE = "meal";
+const VARIABLE = "bear";
 const APP_ID = "jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
 
 const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
@@ -13,6 +14,7 @@ const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
 
 class App extends React.Component {
   state = {
+    isModalOpen: true,
     // photo1: "",
     // photo2: "",
     // photo3: "",
@@ -31,11 +33,25 @@ class App extends React.Component {
       });
   }
 
+  openModal = () => {
+    this.setState({
+      isModalOpen: true,
+    });
+  };
+
+  closeModal = () => {
+    console.log("fdsf");
+    this.setState({
+      isModalOpen: false,
+    });
+  };
+
   render() {
+    const { isModalOpen } = this.state;
+
     return (
       <div className="App">
-        <p>dsdssd</p>
-
+        {isModalOpen && <Modal closeModal={this.closeModal} />}
         {/* {CITY} */}
         {/* {this.state.temperature} &#8451; */}
         {/* <img

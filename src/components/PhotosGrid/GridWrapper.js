@@ -4,7 +4,9 @@ import Photo from "./Photo/Photo";
 
 const GridWrapper = (props) => (
   <div className={style.photosWrapper}>
-    <p>shjdhjsfh</p>
+    <p className={style.title}>
+      Capers Papers - find the most beautiful wallpapers you can imagine{" "}
+    </p>
     <Photo
       photo1={props.photo1}
       photo2={props.photo2}

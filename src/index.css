@@ -1,15 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Comic+Neue:300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Stalemate&display=swap&subset=latin-ext");
 
 html {
   box-sizing: border-box;
-  background-color: rgb(146, 228, 210);
-  background-size: cover;
+  background-color: black;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  font-family: "Comic Neue", cursive;
+  font-family: "Stalemate", cursive;
 }
 
 *,
