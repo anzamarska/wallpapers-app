@@ -10,10 +10,16 @@
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
   position: fixed;
 }
-
+.polygon {
+  width: 100vw;
+  float: right;
+  height: 100vh;
+  shape-outside: polygon(1090px 53px, 226px 429px, 864px 505px);
+  opacity: 0;
+}
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
 }
 .button {
   position: absolute;
@@ -25,8 +31,17 @@
   right: 6%;
   font-family: "Stalemate", cursive;
   border: 0;
+  z-index: 1;
 }
-
+button:hover {
+  filter: brightness(1.1);
+  scale: 1.1;
+}
 .text {
-  padding: 30px;
+  font-size: 18px;
+  line-height: 30px;
+  width: 55ch;
+  text-align: left;
+  margin-top: 10vh;
+  margin-left: 23vw;
 }
