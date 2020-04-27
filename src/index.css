@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Stalemate&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Petit+Formal+Script|Stalemate&display=swap&subset=latin-ext");
 
 html {
   box-sizing: border-box;
-  background-color: black;
+  background-color: #5b5b5b;
   min-height: 100vh;
   text-align: center;
-  font-family: "Stalemate", cursive;
+  /* font-family: 'Stalemate', cursive; */
+  font-family: "Petit Formal Script", cursive;
 }
 
 *,
