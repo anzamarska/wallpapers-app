@@ -2,7 +2,8 @@
 
 html {
   box-sizing: border-box;
-  background-color: #5b5b5b;
+  background-image: url(../src/assets/forest.jpg);
+  background-size: cover;
   min-height: 100vh;
   text-align: center;
   /* font-family: 'Stalemate', cursive; */

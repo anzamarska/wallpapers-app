@@ -4,7 +4,7 @@ import GridWrapper from "./components/PhotosGrid/GridWrapper";
 import Modal from "./components/Modal/Modal";
 
 const API_URL = "https://api.unsplash.com/search/photos";
-const VARIABLE = "meal";
+const VARIABLE = "vikings";
 const APP_ID = "jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
 
 const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;

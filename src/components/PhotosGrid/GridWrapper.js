@@ -1,12 +1,14 @@
 import React from "react";
 import style from "./GridWrapper.module.scss";
 import Photo from "./Photo/Photo";
+import Form from "../Form/Form";
 
 const GridWrapper = (props) => (
   <div className={style.photosWrapper}>
     <p className={style.title}>
-      Capers Papers - find the most beautiful wallpapers you can imagine{" "}
+      find the most beautiful wallpapers you can imagine
     </p>
+    <Form></Form>
     <Photo
       photo1={props.photo1}
       photo2={props.photo2}
