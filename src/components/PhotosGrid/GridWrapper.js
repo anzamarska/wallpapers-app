@@ -8,7 +8,7 @@ const GridWrapper = (props) => (
     <p className={style.title}>
       find the most beautiful wallpapers you can imagine
     </p>
-    <Form></Form>
+    <Form changeCategory={props.changeCategory}></Form>
     <Photo
       photo1={props.photo1}
       photo2={props.photo2}

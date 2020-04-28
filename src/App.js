@@ -4,7 +4,7 @@ import GridWrapper from "./components/PhotosGrid/GridWrapper";
 import Modal from "./components/Modal/Modal";
 
 const API_URL = "https://api.unsplash.com/search/photos";
-const VARIABLE = "vikings";
+let VARIABLE = "cat";
 const APP_ID = "jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
 
 const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
@@ -14,11 +14,21 @@ const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
 
 class App extends React.Component {
   state = {
-    isModalOpen: true,
+    isModalOpen: false,
+    VARIABLE: "hamster",
     // photo1: "",
     // photo2: "",
     // photo3: "",
   };
+
+  changeCategory = () => {
+    this.setState({
+      VARIABLE: this.state.category,
+    });
+    console.log("that function change the category to", this.state.VARIABLE);
+  };
+
+  // this.state.category
 
   componentDidMount() {
     fetch(URL)
@@ -64,6 +74,7 @@ class App extends React.Component {
           photo2={this.state.photo2}
           photo3={this.state.photo3}
           componentDidMount={this.componentDidMount}
+          changeCategory={this.changeCategory}
         />
 
         {/* <div>
