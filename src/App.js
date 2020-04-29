@@ -4,7 +4,7 @@ import GridWrapper from "./components/PhotosGrid/GridWrapper";
 import Modal from "./components/Modal/Modal";
 
 const API_URL = "https://api.unsplash.com/search/photos";
-let VARIABLE = "cat";
+let VARIABLE = "dogs";
 const APP_ID = "jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
 
 const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
@@ -13,25 +13,42 @@ const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
 // "https://api.unsplash.com/search/photos?query=meal&client_id=jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
 
 class App extends React.Component {
-  state = {
-    isModalOpen: false,
-    VARIABLE: "hamster",
-    // photo1: "",
-    // photo2: "",
-    // photo3: "",
-  };
-
-  changeCategory = () => {
-    this.setState({
-      VARIABLE: this.state.category,
-    });
-    console.log("that function change the category to", this.state.VARIABLE);
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isModalOpen: false,
+      variable: "hamster",
+      // photo1: "",
+      // photo2: "",
+      // photo3: "",
+    };
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   // this.state.category
 
   componentDidMount() {
-    fetch(URL)
+    fetch(`${API_URL}?query=cat&client_id=${APP_ID}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          photo1: data.results[0].urls.regular,
+          photo2: data.results[1].urls.regular,
+          photo3: data.results[2].urls.regular,
+        });
+      });
+  }
+
+  handleCategoryChange(e) {
+    this.setState({ variable: e.target.value });
+    console.log("e.target", e.target);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    fetch(`${API_URL}?query=${this.state.variable}&client_id=${APP_ID}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -74,7 +91,9 @@ class App extends React.Component {
           photo2={this.state.photo2}
           photo3={this.state.photo3}
           componentDidMount={this.componentDidMount}
-          changeCategory={this.changeCategory}
+          handleCategoryChange={this.handleCategoryChange}
+          handleSubmit={this.handleSubmit}
+          variable={this.state.variable}
         />
 
         {/* <div>
