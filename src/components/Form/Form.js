@@ -2,16 +2,17 @@ import React from "react";
 import style from "./Form.module.scss";
 
 const Form = (props) => (
-  <form onSubmit={props.handleSubmit}>
+  <form className={style.formWrapper} onSubmit={props.handleSubmit}>
     <label>
       From which category would you like us to find wallpapers for you?
       <input
+        className={style.searchInput}
         type="text"
         variable={props.variable}
         onChange={(e) => props.handleCategoryChange(e)}
       />{" "}
     </label>
-    <input type="submit" value="search" />
+    <input className={style.searchInput} type="submit" value="search" />
   </form>
 );
 

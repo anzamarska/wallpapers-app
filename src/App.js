@@ -9,18 +9,12 @@ const APP_ID = "jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
 
 const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
 
-// const URL =
-// "https://api.unsplash.com/search/photos?query=meal&client_id=jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalOpen: false,
       variable: "hamster",
-      // photo1: "",
-      // photo2: "",
-      // photo3: "",
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,6 +31,7 @@ class App extends React.Component {
           photo1: data.results[0].urls.regular,
           photo2: data.results[1].urls.regular,
           photo3: data.results[2].urls.regular,
+          autor1: data.results[0].user.name,
         });
       });
   }
@@ -51,11 +46,12 @@ class App extends React.Component {
     fetch(`${API_URL}?query=${this.state.variable}&client_id=${APP_ID}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           photo1: data.results[0].urls.regular,
           photo2: data.results[1].urls.regular,
           photo3: data.results[2].urls.regular,
+          autor1: data.results[0].user.name,
         });
       });
   }

@@ -6,7 +6,7 @@ import Form from "../Form/Form";
 const GridWrapper = (props) => (
   <div className={style.photosWrapper}>
     <p className={style.title}>
-      find the most beautiful wallpapers you can imagine
+      Find the most beautiful wallpapers you can imagine
     </p>
     <Form
       handleCategoryChange={props.handleCategoryChange}
