@@ -86,6 +86,7 @@ class App extends React.Component {
           photo1={this.state.photo1}
           photo2={this.state.photo2}
           photo3={this.state.photo3}
+          autor1={this.state.autor1}
           componentDidMount={this.componentDidMount}
           handleCategoryChange={this.handleCategoryChange}
           handleSubmit={this.handleSubmit}

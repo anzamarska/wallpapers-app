@@ -17,6 +17,7 @@ const GridWrapper = (props) => (
       photo1={props.photo1}
       photo2={props.photo2}
       photo3={props.photo3}
+      autor1={props.autor1}
       componentDidMount={props.componentDidMount}
     />
   </div>
