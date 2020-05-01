@@ -1,8 +1,15 @@
-.photo {
+.wrapper {
+  position: relative;
   display: inline-block;
   width: 20rem;
-  height: 20rem;
   margin: 20px;
+}
+
+.photo {
+  position: absolute;
+  display: flex;
+  height: 20rem;
+  width: 20rem;
   object-fit: cover;
   justify-content: center;
   align-items: center;
@@ -17,5 +24,6 @@
 }
 
 .autorName {
-  display: inline-block;
+  position: absolute;
+  text-align: center;
 }
