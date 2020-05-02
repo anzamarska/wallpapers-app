@@ -15,6 +15,7 @@ class App extends React.Component {
     this.state = {
       isModalOpen: false,
       variable: "hamster",
+      preventErrotText: "",
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,21 +48,22 @@ class App extends React.Component {
     fetch(`${API_URL}?query=${this.state.variable}&client_id=${APP_ID}`)
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
-        if (data.total > 0) {
-          return console.log("data.total !== null", data.total);
+        if (data.total > 2) {
+          this.setState({
+            photo1: data.results[0].urls.regular,
+            photo2: data.results[1].urls.regular,
+            photo3: data.results[2].urls.regular,
+            autor1: data.results[0].user.name,
+            autor2: data.results[1].user.name,
+            autor3: data.results[2].user.name,
+          });
         } else {
-          return console.log("data.total == null", data.total);
+          this.setState({
+            preventErrotText:
+              "Sorry, we can't find the pictures you requested. We would be happy to offer you some other. Maybe You will be interested in beautiful pictures from categories such as meals, animal or minimal?",
+            // variable: "sad",
+          });
         }
-
-        //   this.setState({
-        //     photo1: data.results[0].urls.regular,
-        //     photo2: data.results[1].urls.regular,
-        //     photo3: data.results[2].urls.regular,
-        //     autor1: data.results[0].user.name,
-        //     autor2: data.results[1].user.name,
-        //     autor3: data.results[2].user.name,
-        //   });
       });
   }
 
@@ -91,6 +93,7 @@ class App extends React.Component {
           autor1={this.state.autor1}
           autor2={this.state.autor2}
           autor3={this.state.autor3}
+          preventErrotText={this.state.preventErrotText}
           componentDidMount={this.componentDidMount}
           handleCategoryChange={this.handleCategoryChange}
           handleSubmit={this.handleSubmit}

@@ -12,6 +12,7 @@ const GridWrapper = (props) => (
       handleCategoryChange={props.handleCategoryChange}
       handleSubmit={props.handleSubmit}
       variable={props.variable}
+      preventErrotText={props.preventErrotText}
     ></Form>
     <Photo
       photo1={props.photo1}

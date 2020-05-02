@@ -13,6 +13,7 @@ const Form = (props) => (
       />{" "}
     </label>
     <input className={style.searchInput} type="submit" value="search" />
+    <p className={style.errorTest}>{props.preventErrotText}</p>
   </form>
 );
 
