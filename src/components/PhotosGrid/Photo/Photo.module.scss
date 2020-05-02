@@ -8,8 +8,8 @@
 .photo {
   position: absolute;
   display: flex;
-  height: 20rem;
-  width: 20rem;
+  height: 20em;
+  width: 20em;
   object-fit: cover;
   justify-content: center;
   align-items: center;
@@ -25,5 +25,7 @@
 
 .autorName {
   position: absolute;
-  text-align: center;
+  display: flex;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.94);
+  margin: 17rem 5rem;
 }

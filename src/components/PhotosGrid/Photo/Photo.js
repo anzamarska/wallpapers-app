@@ -10,11 +10,11 @@ const Photo = (props) => {
       </div>
       <div className={style.wrapper}>
         <img className={style.photo} src={props.photo2} alt="" />
-        <p className={style.autorName}>{props.autor1} </p>
+        <p className={style.autorName}>{props.autor2} </p>
       </div>
       <div className={style.wrapper}>
         <img className={style.photo} src={props.photo3} alt="" />
-        <p className={style.autorName}>{props.autor1} </p>
+        <p className={style.autorName}>{props.autor3} </p>
       </div>
     </>
   );

@@ -20,10 +20,8 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // this.state.category
-
   componentDidMount() {
-    fetch(`${API_URL}?query=cat&client_id=${APP_ID}`)
+    fetch(`${API_URL}?query=minimal&client_id=${APP_ID}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -32,6 +30,8 @@ class App extends React.Component {
           photo2: data.results[1].urls.regular,
           photo3: data.results[2].urls.regular,
           autor1: data.results[0].user.name,
+          autor2: data.results[1].user.name,
+          autor3: data.results[2].user.name,
         });
       });
   }
@@ -46,12 +46,13 @@ class App extends React.Component {
     fetch(`${API_URL}?query=${this.state.variable}&client_id=${APP_ID}`)
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
         this.setState({
           photo1: data.results[0].urls.regular,
           photo2: data.results[1].urls.regular,
           photo3: data.results[2].urls.regular,
           autor1: data.results[0].user.name,
+          autor2: data.results[1].user.name,
+          autor3: data.results[2].user.name,
         });
       });
   }
@@ -63,7 +64,6 @@ class App extends React.Component {
   };
 
   closeModal = () => {
-    console.log("fdsf");
     this.setState({
       isModalOpen: false,
     });
@@ -75,28 +75,19 @@ class App extends React.Component {
     return (
       <div className="App">
         {isModalOpen && <Modal closeModal={this.closeModal} />}
-        {/* {CITY} */}
-        {/* {this.state.temperature} &#8451; */}
-        {/* <img
-          src={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
-          alt="weather icon"
-        /> */}
 
         <GridWrapper
           photo1={this.state.photo1}
           photo2={this.state.photo2}
           photo3={this.state.photo3}
           autor1={this.state.autor1}
+          autor2={this.state.autor2}
+          autor3={this.state.autor3}
           componentDidMount={this.componentDidMount}
           handleCategoryChange={this.handleCategoryChange}
           handleSubmit={this.handleSubmit}
           variable={this.state.variable}
         />
-
-        {/* <div>
-          {this.state.wind} <p>m/s</p>
-          <div className="windDir"> &uarr;</div>
-        </div> */}
       </div>
     );
   }
