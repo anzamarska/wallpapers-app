@@ -56,6 +56,7 @@ class App extends React.Component {
             autor1: data.results[0].user.name,
             autor2: data.results[1].user.name,
             autor3: data.results[2].user.name,
+            preventErrotText: "",
           });
         } else {
           this.setState({

@@ -26,6 +26,8 @@
 .autorName {
   position: absolute;
   display: flex;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.94);
+  text-shadow: 1px 1px 0px rgb(0, 0, 0);
   margin: 17rem 5rem;
+  text-transform: capitalize;
+  color: white;
 }
