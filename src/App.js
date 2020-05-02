@@ -43,17 +43,25 @@ class App extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     fetch(`${API_URL}?query=${this.state.variable}&client_id=${APP_ID}`)
       .then((response) => response.json())
       .then((data) => {
-        this.setState({
-          photo1: data.results[0].urls.regular,
-          photo2: data.results[1].urls.regular,
-          photo3: data.results[2].urls.regular,
-          autor1: data.results[0].user.name,
-          autor2: data.results[1].user.name,
-          autor3: data.results[2].user.name,
-        });
+        // console.log(data);
+        if (data.total > 0) {
+          return console.log("data.total !== null", data.total);
+        } else {
+          return console.log("data.total == null", data.total);
+        }
+
+        //   this.setState({
+        //     photo1: data.results[0].urls.regular,
+        //     photo2: data.results[1].urls.regular,
+        //     photo3: data.results[2].urls.regular,
+        //     autor1: data.results[0].user.name,
+        //     autor2: data.results[1].user.name,
+        //     autor3: data.results[2].user.name,
+        //   });
       });
   }
 
