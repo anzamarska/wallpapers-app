@@ -2,6 +2,7 @@
 
 html {
   box-sizing: border-box;
+  background-color: #2f2b2c;
   background-image: url(../src/assets/forest.jpg);
   background-size: cover;
   min-height: 100vh;

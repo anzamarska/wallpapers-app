@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import GridWrapper from "./components/PhotosGrid/GridWrapper";
+import PhotosWrapper from "./components/PhotosGrid/PhotosWrapper";
 import Modal from "./components/Modal/Modal";
+import FavPicturesWrapper from "./components/FavouritesPictures/FavPicturesWrapper";
 
 const API_URL = "https://api.unsplash.com/search/photos";
 let VARIABLE = "dogs";
@@ -87,7 +88,7 @@ class App extends React.Component {
       <div className="App">
         {isModalOpen && <Modal closeModal={this.closeModal} />}
 
-        <GridWrapper
+        <PhotosWrapper
           photo1={this.state.photo1}
           photo2={this.state.photo2}
           photo3={this.state.photo3}
@@ -100,6 +101,7 @@ class App extends React.Component {
           handleSubmit={this.handleSubmit}
           variable={this.state.variable}
         />
+        <FavPicturesWrapper />
       </div>
     );
   }

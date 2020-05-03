@@ -1,9 +1,9 @@
 import React from "react";
-import style from "./GridWrapper.module.scss";
+import style from "./PhotosWrapper.module.scss";
 import Photo from "./Photo/Photo";
 import Form from "../Form/Form";
 
-const GridWrapper = (props) => (
+const PhotosWrapper = (props) => (
   <div className={style.photosWrapper}>
     <p className={style.title}>
       Find the most beautiful wallpapers you can imagine
@@ -26,4 +26,4 @@ const GridWrapper = (props) => (
   </div>
 );
 
-export default GridWrapper;
+export default PhotosWrapper;
