@@ -1,11 +1,15 @@
 import React from "react";
 import style from "./Photo.module.scss";
+import buttonIcon from "../../../assets/bheart.png";
 
 const Photo = (props) => {
   return (
     <>
       <div className={style.wrapper}>
         <img className={style.photo} src={props.photo1} alt="" />
+        <button className={style.likeButton}>
+          <img src={buttonIcon} className={style.buttonIcon} alt="" />
+        </button>
         <p className={style.autorName}>{props.autor1} </p>
       </div>
       <div className={style.wrapper}>
