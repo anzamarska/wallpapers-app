@@ -5,10 +5,10 @@ import Modal from "./components/Modal/Modal";
 import FavPicturesWrapper from "./components/FavouritesPictures/FavPicturesWrapper";
 
 const API_URL = "https://api.unsplash.com/search/photos";
-let VARIABLE = "dogs";
+// let VARIABLE = "dogs";
 const APP_ID = "jiR34-uAyURzlbL2qG1-4Fbrheyb13KakZT-O0X7HjM";
 
-const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
+// const URL = `${API_URL}?query=${VARIABLE}&client_id=${APP_ID}`;
 
 class App extends React.Component {
   constructor(props) {
@@ -17,7 +17,13 @@ class App extends React.Component {
       isModalOpen: false,
       variable: "",
       preventErrotText: "",
-      favouritesImg: [],
+      favouritesImg: [
+        {
+          src:
+            "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyOTc2OX0",
+          autor: "David van Dijk",
+        },
+      ],
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -84,10 +90,17 @@ class App extends React.Component {
   };
 
   addToFavourites = (src, autor) => {
-    console.log("add to favourites");
     this.setState({
       favouritesImg: [...this.state.favouritesImg, { src, autor }],
     });
+    console.log(
+      "this.state.favouritesImg",
+      this.state.favouritesImg,
+      "src",
+      this.state.favouritesImg[0].src,
+      "autor",
+      this.state.favouritesImg[0].autor
+    );
   };
 
   render() {
@@ -111,7 +124,7 @@ class App extends React.Component {
           variable={this.state.variable}
           addToFavourites={this.addToFavourites}
         />
-        <FavPicturesWrapper />
+        <FavPicturesWrapper favouritesImg={this.state.favouritesImg} />
       </div>
     );
   }
