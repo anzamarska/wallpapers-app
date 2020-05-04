@@ -8,11 +8,14 @@ const Form = (props) => (
       <input
         className={style.searchInput}
         type="text"
-        variable={props.variable}
+        value={props.variable}
+        placeholder="choose category"
         onChange={(e) => props.handleCategoryChange(e)}
-      />{" "}
+      />
+      {""}
     </label>
     <input className={style.searchInput} type="submit" value="search" />
+
     <p className={style.errorTest}>{props.preventErrotText}</p>
   </form>
 );

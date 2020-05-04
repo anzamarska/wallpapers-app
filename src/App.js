@@ -15,8 +15,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       isModalOpen: false,
-      variable: "hamster",
+      variable: "",
       preventErrotText: "",
+      favouritesImg: [],
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,11 +41,11 @@ class App extends React.Component {
 
   handleCategoryChange(e) {
     this.setState({ variable: e.target.value });
-    console.log("e.target", e.target);
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    // console.log("e.target", event.target, "variable", variable.value);
 
     fetch(`${API_URL}?query=${this.state.variable}&client_id=${APP_ID}`)
       .then((response) => response.json())
@@ -59,14 +60,15 @@ class App extends React.Component {
             autor3: data.results[2].user.name,
             preventErrotText: "",
           });
+          // this.mainInput.value = "";
         } else {
           this.setState({
             preventErrotText:
               "Sorry, we can't find the pictures you requested. We would be happy to offer you some other. Maybe You will be interested in beautiful pictures from categories such as meals, animal or minimal?",
-            // variable: "sad",
           });
         }
       });
+    this.setState({ variable: "" });
   }
 
   openModal = () => {
@@ -78,6 +80,13 @@ class App extends React.Component {
   closeModal = () => {
     this.setState({
       isModalOpen: false,
+    });
+  };
+
+  addToFavourites = (src, autor) => {
+    console.log("add to favourites");
+    this.setState({
+      favouritesImg: [...this.state.favouritesImg, { src, autor }],
     });
   };
 
@@ -100,6 +109,7 @@ class App extends React.Component {
           handleCategoryChange={this.handleCategoryChange}
           handleSubmit={this.handleSubmit}
           variable={this.state.variable}
+          addToFavourites={this.addToFavourites}
         />
         <FavPicturesWrapper />
       </div>
