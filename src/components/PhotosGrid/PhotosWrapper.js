@@ -23,6 +23,7 @@ const PhotosWrapper = (props) => (
       autor3={props.autor3}
       componentDidMount={props.componentDidMount}
       addToFavourites={props.addToFavourites}
+      photos={props.photos}
     />
   </div>
 );

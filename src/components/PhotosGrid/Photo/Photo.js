@@ -5,38 +5,18 @@ import buttonIcon from "../../../assets/bheart.png";
 const Photo = (props) => {
   return (
     <>
-      <div className={style.wrapper}>
-        <img className={style.photo} src={props.photo1} alt="" />
-        <button
-          className={style.likeButton}
-          onClick={() => props.addToFavourites(props.photo1, props.autor1)}
-        >
-          <img src={buttonIcon} className={style.buttonIcon} alt="" />
-        </button>
-        <p className={style.autorName}>{props.autor1} </p>
-      </div>
-
-      <div className={style.wrapper}>
-        <img className={style.photo} src={props.photo2} alt="" />
-        <button
-          className={style.likeButton}
-          onClick={() => props.addToFavourites(props.photo1, props.autor1)}
-        >
-          <img src={buttonIcon} className={style.buttonIcon} alt="" />
-        </button>
-        <p className={style.autorName}>{props.autor2} </p>
-      </div>
-
-      <div className={style.wrapper}>
-        <img className={style.photo} src={props.photo3} alt="" />
-        <button
-          className={style.likeButton}
-          onClick={() => props.addToFavourites(props.photo1, props.autor1)}
-        >
-          <img src={buttonIcon} className={style.buttonIcon} alt="" />
-        </button>
-        <p className={style.autorName}>{props.autor3} </p>
-      </div>
+      {props.photos.map((photo) => (
+        <div key={photo.urls.regular} className={style.wrapper}>
+          <img className={style.photo} src={photo.urls.regular} alt="" />
+          <button
+            className={style.likeButton}
+            onClick={() => props.addToFavourites(photo)}
+          >
+            <img src={buttonIcon} className={style.buttonIcon} alt="" />
+          </button>
+          <p className={style.autorName}>{photo.user.name} </p>
+        </div>
+      ))}
     </>
   );
 };

@@ -17,13 +17,8 @@ class App extends React.Component {
       isModalOpen: false,
       variable: "",
       preventErrotText: "",
-      favouritesImg: [
-        {
-          src:
-            "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyOTc2OX0",
-          autor: "David van Dijk",
-        },
-      ],
+      favouritesImg: [],
+      photos: [],
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,14 +29,11 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+
         this.setState({
-          photo1: data.results[0].urls.regular,
-          photo2: data.results[1].urls.regular,
-          photo3: data.results[2].urls.regular,
-          autor1: data.results[0].user.name,
-          autor2: data.results[1].user.name,
-          autor3: data.results[2].user.name,
+          photos: data.results.slice(0, 9),
         });
+        // console.log(data.results.slice(0, 2));
       });
   }
 
@@ -58,12 +50,7 @@ class App extends React.Component {
       .then((data) => {
         if (data.total > 2) {
           this.setState({
-            photo1: data.results[0].urls.regular,
-            photo2: data.results[1].urls.regular,
-            photo3: data.results[2].urls.regular,
-            autor1: data.results[0].user.name,
-            autor2: data.results[1].user.name,
-            autor3: data.results[2].user.name,
+            photos: data.results.slice(0, 9),
             preventErrotText: "",
           });
           // this.mainInput.value = "";
@@ -89,18 +76,28 @@ class App extends React.Component {
     });
   };
 
-  addToFavourites = (src, autor) => {
-    this.setState({
-      favouritesImg: [...this.state.favouritesImg, { src, autor }],
-    });
-    console.log(
-      "this.state.favouritesImg",
-      this.state.favouritesImg,
-      "src",
-      this.state.favouritesImg[0].src,
-      "autor",
-      this.state.favouritesImg[0].autor
+  addToFavourites = (favPhoto) => {
+    const thisStateFavouritesImg = this.state.favouritesImg;
+    const favouritesImgInclude = this.state.favouritesImg.includes(favPhoto);
+
+    const firstConditioal = this.state.favouritesImg.filter(
+      (photo) => photo !== favPhoto
     );
+
+    console.log(
+      "thisStateFavouritesImg",
+      thisStateFavouritesImg,
+      "favouritesImgInclude",
+      favouritesImgInclude,
+      "firstConditioal",
+      firstConditioal
+    );
+
+    this.setState({
+      favouritesImg: this.state.favouritesImg.includes(favPhoto)
+        ? this.state.favouritesImg.filter((photo) => photo !== favPhoto)
+        : [...this.state.favouritesImg, favPhoto],
+    });
   };
 
   render() {
@@ -111,20 +108,18 @@ class App extends React.Component {
         {isModalOpen && <Modal closeModal={this.closeModal} />}
 
         <PhotosWrapper
-          photo1={this.state.photo1}
-          photo2={this.state.photo2}
-          photo3={this.state.photo3}
-          autor1={this.state.autor1}
-          autor2={this.state.autor2}
-          autor3={this.state.autor3}
           preventErrotText={this.state.preventErrotText}
           componentDidMount={this.componentDidMount}
           handleCategoryChange={this.handleCategoryChange}
           handleSubmit={this.handleSubmit}
           variable={this.state.variable}
           addToFavourites={this.addToFavourites}
+          photos={this.state.photos}
         />
-        <FavPicturesWrapper favouritesImg={this.state.favouritesImg} />
+        <FavPicturesWrapper
+          favouritesImg={this.state.favouritesImg}
+          addToFavourites={this.addToFavourites}
+        />
       </div>
     );
   }
