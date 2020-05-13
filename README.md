@@ -18,6 +18,8 @@ Project is created with:
 
 ## Deploying / Publishing
 
+https://confident-northcutt-f340ff.netlify.app
+
 ## Available Scripts
 
 In the project directory, you can run:
