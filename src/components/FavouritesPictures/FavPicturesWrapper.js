@@ -4,7 +4,7 @@ import buttonIcon from "../../assets/bheart.png";
 
 const FavPicturesWrapper = (props) => (
   <>
-    <p>Your favourites pictures</p>
+    <p className={style.favouriteTitle}>Your favourites pictures</p>
     {props.favouritesImg.map((photo) => (
       <div key={photo.urls.regular} className={style.wrapper}>
         <img className={style.photo} src={photo.urls.regular} alt="" />

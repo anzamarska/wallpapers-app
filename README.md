@@ -16,6 +16,8 @@ Project is created with:
 - React
 - API
 
+## Deploying / Publishing
+
 ## Available Scripts
 
 In the project directory, you can run:

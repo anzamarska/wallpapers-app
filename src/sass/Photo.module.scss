@@ -45,12 +45,15 @@
 
   transform: translateZ(0);
   transition: all 1s ease;
-
-  :hover {
-  }
 }
 
 .buttonIcon {
   width: 25px;
   height: 25px;
+}
+
+.favouriteTitle {
+  font-size: 1.6rem;
+  text-shadow: 1px 1px 0px white;
+  text-transform: capitalize;
 }
