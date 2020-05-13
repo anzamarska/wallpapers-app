@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./PhotosWrapper.module.scss";
+import style from "../../sass/PhotosWrapper.module.scss";
 import Photo from "./Photo/Photo";
 import Form from "../Form/Form";
 

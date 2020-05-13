@@ -1,0 +1,23 @@
+// @mixin specialDiv($paddingValue) {
+//   padding: $paddingValue;
+// }
+
+// .div1 {
+//   @include specialDiv(10rem);
+// }
+
+// .div2 {
+//   @include specialDiv(20rem);
+// }
+
+@mixin breakpoint($paddingValue) {
+  padding: $paddingValue;
+}
+
+.div1 {
+  @include specialDiv(10rem);
+}
+
+.div2 {
+  @include specialDiv(20rem);
+}

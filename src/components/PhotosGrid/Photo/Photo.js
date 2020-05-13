@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Photo.module.scss";
+import style from "../../../sass/Photo.module.scss";
 import buttonIcon from "../../../assets/bheart.png";
 
 const Photo = (props) => {

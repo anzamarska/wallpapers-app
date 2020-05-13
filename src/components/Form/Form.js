@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Form.module.scss";
+import style from "../../sass/Form.module.scss";
 
 const Form = (props) => (
   <form className={style.formWrapper} onSubmit={props.handleSubmit}>

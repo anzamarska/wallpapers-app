@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Modal.module.scss";
+import styles from "../../sass/Modal.module.scss";
 import icon from "../../assets/bheart.png";
 import polygon from "../../assets/fog.jpg";
 

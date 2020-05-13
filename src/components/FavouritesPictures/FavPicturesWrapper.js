@@ -1,9 +1,10 @@
 import React from "react";
-import style from "../PhotosGrid/Photo/Photo.module.scss";
+import style from "../../sass/Photo.module.scss";
 import buttonIcon from "../../assets/bheart.png";
 
 const FavPicturesWrapper = (props) => (
   <>
+    <p>Your favourites pictures</p>
     {props.favouritesImg.map((photo) => (
       <div key={photo.urls.regular} className={style.wrapper}>
         <img className={style.photo} src={photo.urls.regular} alt="" />
